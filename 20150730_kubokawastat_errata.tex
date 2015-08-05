@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} %This changes the margins.
+\author{Kyohei Okumura}
+\begin{document}
+
+\title{数理統計テキスト正誤表}
+\author{Kyohei Okumura}
+\date{\today}
+\maketitle
+
+\section*{第２章}
+
+\begin{itemize}
+\item p.15 例2.12
+
+「k回目に表が出たら」→「k回目に初めて表が出たら」
+\end{itemize}
+
+\section*{第３章}
+\begin{itemize}
+
+\item p.21 3.1.1 離散一様分布 Nで割るのを忘れている。
+$$E[X] = \displaystyle{\sum_{x=1}^N {\frac{x}{N}} = \frac{N+1}{2}, E[X^2] = \sum_{x=1}^N \frac{x^2}{N} = \frac{(N+1)(2N+1)}{6}}$$
+が正しいと思います。
+
+\item p.25 命題3.7 証明
+
+下から４行目（最後のkは不要）
+$$\displaystyle{\frac{(r-1)!}{(1-q)^r} = \sum_{k=1}^\infty (k+r-1) \cdots (k+1)q^k}$$
+下から２行目（同上）
+$$1 = \displaystyle{\sum_{k=1}^\infty \frac{(k+r-1) \cdots (k+1)}{(r-1)!}p^r q^k}$$
+がそれぞれ正しいと思います。
+
+\end{itemize}
+
+\section*{第４章}
+\begin{itemize}
+
+\item 相関係数の定義の後 $Corr(X,Y)$が抜けてる？
+
+「実数$a,b,c,d$に対して～、依存してしまう。これに対して、相関係数は$Corr(aX+b, cY+d) = (ac/|ac|) Corr(X,Y)$となるので、～」
+
+が正しいのではないでしょうか。
+
+
+\end{itemize}
+
+\section*{第５章}
+\begin{itemize}
+
+\item p.60 定理5.20の証明直後
+
+「定理5.20において$\sigma^2$が～」→「定理5.19において$\sigma^2$が～」
+
+\item p.63 (5.18)より２行下
+
+「極限分布は１点になってします。」→「１点になってしまう。」
+
+\end{itemize}
+
+\section*{第６章}
+\begin{itemize}
+
+\item p.70 定義6.1の直後　$T(X)=t$とすべき箇所が$T(X)=x$になっている。
+
+「離散確率変数の場合～、同時確率は、
+$P_\theta (X=x) = P_\theta (X=x, T(X)=t) = P_\theta (X=x | T(X)=t)$
+」
+が正しいと思います。
+
+\item p.78 medianの期待値　二つ目の変形のマイナスは不要
+$$E[med(X_1, \ldots, X_n) - \mu] = E[med(Z_1, \ldots, Z_n)] = E[med(-Z_1, \ldots, -Z_n)] = -E[med(Z_1, \ldots, Z_n)]$$
+が正しいと思います。
+
+\end{itemize}
+
+\section*{第７章}
+\begin{itemize}
+
+\item p.86 一番下の行の最後　$z_\alpha$ではなく$\alpha$
+$$P_{H_0}(|\bar{X} - \bar{Y}| / \sigma_0 > C) = P_{H_0}(|Z| > C\sqrt{mn} / \sqrt{m+n}) = \alpha$$
+が正しいと思います。
+
+\item p.90 下から９行目
+
+「なる量をが検定統計量として～」→「なる量を検定統計量として～」
+
+
+\end{itemize}
+
+
+\end{document}

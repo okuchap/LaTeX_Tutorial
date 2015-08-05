@@ -1,0 +1,44 @@
+\documentclass[12pt]{jsarticle}
+\usepackage[dvipdfm]{graphicx}
+\usepackage{pxfonts}
+\pagestyle{empty}
+
+%% 高さの設定
+\setlength{\textheight}{\paperheight}   % ひとまず紙面を本文領域に
+\setlength{\topmargin}{-5.4truemm}      % 上の余白を20mm(=1inch-5.4mm)に
+\addtolength{\topmargin}{-\headheight}  % 
+\addtolength{\topmargin}{-\headsep}     % ヘッダの分だけ本文領域を移動させる
+\addtolength{\textheight}{-40truemm}    % 下の余白も20mmに
+%% 幅の設定
+\setlength{\textwidth}{\paperwidth}     % ひとまず紙面を本文領域に
+\setlength{\oddsidemargin}{-5.4truemm}  % 左の余白を20mm(=1inch-5.4mm)に
+\setlength{\evensidemargin}{-5.4truemm} % 
+\addtolength{\textwidth}{-40truemm}     % 右の余白も20mmに
+\begin{document}
+
+
+\title {TeXサンプル}
+\author{Chaos Lab.}
+\date{2012.11.25}
+\maketitle
+
+\section{コーシーの積分表示}
+\subsection{コーシーの積分表示}
+$f(z)$は領域$D$で正則であるとする。$D$内に単一閉曲線$C$があるとき、点$a$が$C$の内部にあるならば次式が成り立つ。
+\begin{equation}
+f(a)=\frac{1}{2\pi i}\int _C \frac{f(z)}{z-a}dz
+\end{equation}
+\subsection{練習問題}
+次の積分を求めよ。ただし$C$は$|z|=2$とする。
+\begin{equation}
+\int _C\frac{z^3}{z+i}dz
+\end{equation}
+\subsubsection*{$<$解答$>$}
+点$z=-i$は円$C$の内部にあり\footnote{$\frac{z^3}{z+i}=\frac{z^3}{z-(-i)}　虚数軸上の点(0,-i)は円C:|z|=2の内部にある。$}、
+$f(z)=z^3$は$C$の内部で正則であるから、コーシの積分表示から
+\begin{eqnarray*}
+\frac{1}{2\pi i}\int _C\frac{z^3}{z+i}dz=f(-i)=(-i)^3&=&i\\
+よって　　　\int _C\frac{z^3}{z+i}dz=2\pi i^2&=&\underline{-2\pi}
+\end{eqnarray*}
+
+\end{document}

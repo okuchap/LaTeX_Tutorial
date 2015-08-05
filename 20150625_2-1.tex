@@ -1,0 +1,249 @@
+\documentclass[11pt,a4paper]{amsart}
+
+\theoremstyle{definition}
+\newtheorem{thm}{定理}
+\newtheorem{thm*}{定理}
+\newtheorem{lem}{補題}
+\newtheorem{prop}{命題}
+%
+\theoremstyle{definition}
+\newtheorem{defn}{定義}[section]
+%
+\theoremstyle{remark}
+\newtheorem{rem}{注意}
+\newtheorem{prf}{証明}
+\renewcommand{\theprf}{}
+
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} %This changes the margins.
+\begin{document}
+
+
+\title{問15.4 定理4.11の証明(未完)}
+\author{奥村　恭平}
+\date{\today}
+\maketitle
+
+定理の証明の前に、いくつか補題を示す。
+
+[復習1]
+
+$F \subset E$がEの部分空間であるとき、 $F$の零化空間$F^\bot$を
+$F^\bot := \{x' \in E' \; | \; \forall x \in F; \;\;\;\langle x,x' \rangle = 0 \}$
+と定義する。
+
+
+\begin{lem} 
+$F^\bot$は$E'$の閉空間  (問13.3)
+\end{lem}
+\begin{prf}
+以前久保さんが書いてくださったので略。
+\qed
+\end{prf}
+
+[復習2]
+
+$F$が$E$の閉部分空間であるとき、同値関係を「$\sim \overset{def}{\Longleftrightarrow} x-y \in F$」と定義し、$E$の$\sim$による同値類を考えることで、商空間$E/F$が定義できる。（演算もwell-defined。）このとき、
+$\|x+F\|:= \inf_{y \in F}\|x+y\|_E$
+とノルムが定義される。補題1より、$E'/F^\bot$が定義できることがわかる。
+
+\begin{lem}
+$F' \cong E' / F^\bot$  (問14.3(1))
+\end{lem}
+\begin{prf}
+$\phi \in F'$とする。Hahn-Banachの定理より、$\phi$を$\Phi \in E'$に拡張することができる。したがって、
+$$
+\begin{array}{ccc}
+E' & \stackrel{T}{\longrightarrow} & F' \\
+\rotatebox{90}{$\in$} & & \rotatebox{90}{$\in$} \\
+x' & \longmapsto & x'|F
+\end{array}
+$$
+を考えれば、少なくとも$T(\Phi)=\phi$なので、
+$$\forall \phi \in F' \;\; \exists x' \in E'; \;\;\; T(x')=\phi$$
+が成立し、
+$T:E' \to F'$は全射になる。(ただし、$x'|F$は$x'$の$F$への制限。)
+
+次に、この$T$から、$T':E'/F^\bot \to F'$を構成する。任意の$x',y' \in E'$について、$T(x')=T(y')$となる。\\
+$\Longleftrightarrow \forall x',y' \in E'; \;\;\; x'|F = y'|F$
+\;\;\;$\Longleftrightarrow \forall x_F \in F; \;\;\; x'(x_F)=y'(x_F)$
+\;\;\;$\Longleftrightarrow \forall x_F \in F; \;\;\; (x'-y')(x_F)=0$\\
+$\Longleftrightarrow x'-y' \in F^\bot$
+となるので、したがって、
+$$
+\begin{array}{ccc}
+E' / F^\bot & \stackrel{T'}{\longrightarrow} & F' \\
+\rotatebox{90}{$\in$} & & \rotatebox{90}{$\in$} \\
+x'+F^\bot & \longmapsto & x'|F
+\end{array}
+$$
+を考えれば、（$E'/F^\bot$は元の$T$において行き先が同じだったものを一つの元にまとめた集合になっているので、）$T':E' / F^\bot \to F'$は全単射である。線形性と連続性については別途示す必要があるが省略する。以上より、$T'$は全単射かつ連続な線形写像である。(i.e.代数的同型である。）
+
+ノルムについては、まず、Hahn-Banachの定理より、
+
+\begin{equation}
+\|x'|F\| \geq \| x'+F^\bot \|
+\end{equation}
+となる。(??? ここがわからず。)
+
+一方、
+$$
+\|x'|F\| = \sup_{x \in F, \|x\| \leq 1} |x'(x)|
+\leq \sup_{x \in E, \|x\| \leq 1}|x'(x)|
+= \|x'\|
+$$
+
+が成立するので、
+$\|x'|F\| \leq \| x'+F^\bot \|$
+
+(??? ここもよくわからず。)
+よって、(1)と併せて、
+$\|x'|F\| = \| x'+F^\bot \|$
+が成立。
+
+以上より、
+$F' \cong E'/F^\bot$
+が示された。
+
+\qed
+\end{prf}
+
+\begin{lem}
+$T:E \to F,S:F \to G$が共に等距離同型写像ならば、$S \circ T:E \to G$は等距離同型写像
+\end{lem}
+
+\begin{prf}
+全単射な写像同士を合成しても全単射。連続な写像同士を合成しても連続。
+
+ノルムについても、
+$$\|S \circ T(x)\|
+=\|T(x)\|
+=\|x\|
+$$
+より、成立。
+\end{prf}
+
+\begin{lem}
+$E \cong F, \;\; F \cong G \Longrightarrow E \cong G$
+\end{lem}
+
+\begin{prf}
+補題3による。
+\qed
+\end{prf}
+
+\begin{lem}
+$E \cong F \Longrightarrow E' \cong F'$(??? これって成立しますか？)
+\end{lem}
+
+以上の補題を前提に、定理を示す。
+
+\begin{thm}
+回帰的バナッハ空間の任意の閉部分空間は回帰的(定理4.11(a))
+\end{thm}
+\begin{prf}
+
+$\mathrm{(i)}\;\; E$ :Banach空間 \;\;\;
+$\mathrm{(ii)}\;\; F \subset E$ :Eの閉部分空間  \;\;\;
+$\mathrm{(iii)}\;\; E \cong E''$ \;\;\;
+という仮定の下で、$F \cong F''$を示せば十分。
+
+補題2より、$F' \cong E'/F^\bot$。よって、補題5より、$F'' \cong (E'/F^\bot)' $。
+
+また、$(E'/F^\bot)' \cong (F^\bot)^\bot$が成立する(???)
+
+ところが、$E \cong E''$より$F \cong (F^\bot)^\bot$(???)
+
+したがって、補題4より$F'' \cong F$。
+
+\qed
+\end{prf}
+
+示せなかったものを以下に並べる。
+
+\begin{prop}
+$\mathrm{(i)}\;\; E$ :Banach空間 \;\;\;
+$\mathrm{(ii)}\;\; F \subset E$ :Eの閉部分空間  \;\;\;
+$\mathrm{(iii)}\;\; E \cong E''$ \;\;\;
+
+$\Longrightarrow \;\;\; (E'/F^\bot)' \cong (F^\bot)^\bot$
+\end{prop}
+
+\begin{prop}
+$\mathrm{(i)}\;\; E$ :Banach空間 \;\;\;
+$\mathrm{(ii)}\;\; F \subset E$ :Eの閉部分空間  \;\;\;
+$\mathrm{(iii)}\;\; E \cong E''$ \;\;\;
+
+$\Longrightarrow \;\;\; (F^\bot)^\bot \cong F$
+\end{prop}
+
+次に、定理の後半を示す。まず、補題をもう一つ準備する。
+
+\begin{lem}
+$E$は$E''$の中の閉部分空間(???)
+\end{lem}
+
+\begin{prf}
+正確には、
+$$
+\begin{array}{ccc}
+E & \stackrel{T}{\longrightarrow} & E'' \\
+\rotatebox{90}{$\in$} & & \rotatebox{90}{$\in$} \\
+x & \longmapsto & \phi_x
+\end{array}
+$$
+
+としたとき(ただし、$\phi_x(x') = \langle x,x' \rangle $)、$T(E) \in E''$が閉部分空間となることを示す。
+
+まず、部分空間となることを示す。
+$$
+\forall \phi_x, \phi_y \in T(E),\forall \alpha, \beta \in \mathbb{R}; \;\; \alpha \phi_x + \beta \phi_y \in T(E) 
+$$
+を示せばよい。$T$が線形であり、Eがベクトル空間であることに注意すれば、
+$$
+\alpha \phi_x + \beta \phi_y
+=\alpha T(x) + \beta T(y)
+=T(\alpha x + \beta y) \in T(E)$$
+が成立することが分かる。よって、$T(E)$が$E''$の部分空間であることが示された。
+
+次に、$T(E)$が閉集合であることを示す。
+
+$$\phi_{x_n} \to \phi_x \Longrightarrow \phi_x \in T(E)$$
+
+を示せばよい。
+$$
+\phi_{x_n} \to \phi_x
+\Longleftrightarrow T(x_n) \to T(x)
+\overset{\textrm{$T$:連続かつ単射}}{\Longleftrightarrow} x_n \to x
+$$
+
+以上より、「$x \in E$であれば、」 $T(E)$は閉集合であることが言える。
+
+・・・一般には不成立??
+
+\qed
+\end{prf}
+
+\begin{thm}
+$E \cong E'' \Longleftrightarrow E' \cong (E')''$ (定理4.11(b))
+\end{thm}
+
+\begin{prf}
+
+($\Longrightarrow$) 補題5より、$E \cong E'' \Longrightarrow E' \cong (E')''$なので成立。
+
+($\Longleftarrow$) $E' \cong (E')''$ならば、補題5より$E'' \cong (E')''' = (E'')''$より、$E''$も回帰的。
+
+補題6より、$E$は$E''$の中の閉部分空間であるので、
+
+定理1より、$E \cong E''$が成立。
+
+\qed
+\end{prf}
+
+\end{document}

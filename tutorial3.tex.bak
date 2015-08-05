@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+
+\begin{document}
+
+$$(x+1)$$
+$$[2+(x+1)]$$
+$$\{a,b,c\}$$ % {や$を表示させたいときは、\を左につける。
+$$\$12.55$$
+
+$$3\left(\frac{2}{5}\right)$$ %(や[のサイズ調整は\left,\right
+$$3\left[\frac{2}{5}\right]$$
+$$3\left\{\frac{2}{5}\right\}$$
+
+$$|x|$$
+$$\left|\frac{x}{x+1}\right|$$
+
+$$\left\{x^2\right.$$
+$$\left. \frac{dy}{dx} \right|_{x=1}$$ %(や|などを片方だけ表示したいときは、.で置換
+
+\begin{tabular}{|c|c|c|c|c|c|} %cの数が行数。表に縦線を入れるときはcの間に|を挟む。
+\hline
+$x$ & 1 & 2 & 3 & 4 & 5 \\ \hline %\\で改行。\hlineで横線。
+$f(x)$ & 10 & 11 & 12 & 13 & 14 \\ \hline
+\end{tabular}
+
+\begin{eqnarray*} %式を並べる
+5x^2-9&=&2x+3\\ %"="を"& ampersand"で挟むと、式が揃う。
+4x^2&=&12\\
+x^3&=&3\\
+x&\approx&\pm1.732
+\end{eqnarray*} %"*"を付けると、式番号が非表示に
+
+\end{document}

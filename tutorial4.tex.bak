@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+
+\begin{document}
+
+\begin{enumerate} %リストの作り方
+\item pencil
+\item paper
+\item calculator
+\item ruler
+\item notebook
+	\begin{enumerate}
+	\item assessments
+		\begin{enumerate}
+		\item tests
+		\item quizzes
+		\end{enumerate}
+	\item homework
+	\item notes
+	\end{enumerate}
+\item graph paper
+\end{enumerate}
+
+
+\begin{itemize} %番号を付けないリスト
+\item pencil
+\item paper
+\item calculator
+\item ruler
+\item notebook
+	\begin{itemize}
+	\item assessments
+		\begin{itemize}
+		\item tests
+		\item quizzes
+		\end{itemize}
+	\item homework
+	\item notes
+	\end{itemize}
+\item graph paper
+\end{itemize}
+
+\begin{enumerate} %左に自分の好きな言葉を付ける
+\item[Commutative] $a+b=b+a$
+\item[Assocciative] $a+(b+c)=(a+b)+c$
+\item[Distributive] $a(b+c)=ab+ac$
+\end{enumerate}
+
+
+
+\end{document}

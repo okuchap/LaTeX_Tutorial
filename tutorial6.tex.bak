@@ -1,0 +1,28 @@
+\documentclass[11pt]{article}
+
+\usepackage{fullpage} %余白等の調整。書き方複数あり。
+\usepackage{amsfonts} %数学用の記号
+\usepackage{graphicx} %画像の使用
+
+
+\def\eq1{y=\frac{x}{3x^2+x+1}} %マクロ
+\def\labelaxes{Remember to include a scale and label your axis.}
+
+\begin{document}
+
+The set of Natural numbers is denoted by $\mathbb{N}$. %数学用の記号は\mathbb{?}
+
+The set of Integers is denoted by $\mathbb{Z}$.
+
+The set of Real numbers is denoted by $\mathbb{R}$
+
+Graph $\eq1$. \labelaxes %マクロはこう使う
+
+\begin{center} \includegraphics[width=5in]{quad1.jpg} \end{center} %画像の挿入。位置や大きさ、角度が調整可能。.texファイルと同じフォルダに画像を置く必要あり。
+Images must be saved as .png, .jpg, .gif, or .pdf files.
+
+\includegraphics[scale=0.5, angle=45]{quad1.jpg}
+
+Identify the asymptotes for the graph of $\eq1$.
+
+\end{document}
