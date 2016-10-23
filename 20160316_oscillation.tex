@@ -1,0 +1,196 @@
+\documentclass[11pt,a4paper]{amsart}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{thm*}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{ex}{Example}
+%
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+%
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{prf}{Proof}
+\renewcommand{\theprf}{}
+
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} %This changes the margins.
+\begin{document}
+
+\title{Oscillation of solutions}
+\author{Kyohei OKUMURA}
+\date{\today}
+
+\maketitle
+\section{Basic Results}
+%\subsection{}
+
+Through this article, $y$ is a function of $x$. We are going to tackle with the ODE below:
+\begin{equation}
+\displaystyle{ [p(x)y']' + q(x)y = 0} 
+\end{equation}
+,where $p,q$ are bounded and continuous on an interval $I$ and $\forall x \in I : \ p(x)>0.$
+
+\begin{lem}
+All second order variable coefficient linear ODE i.e. $y'' + g(x)y' + h(x)y = 0 $ can be transformed into the above form, where $g$ and $h$ are bounded continuous functions defined on an interval $I$.
+\end{lem}
+\begin{prf}
+Take an arbitrary constant $c \in I$. Define $p$ and $q$ as follows:
+$$p(x):=\exp[\int_c^x g(t)dt]$$
+$$q(x):=h(x)p(x)$$
+\qed
+\end{prf}
+
+\begin{thm}[Sturm Separation Therem]
+Suppose $u$ and $v$ are two linearly independent solutions of (1). Then, zeros of $u$ and $v$ occur in turn. More precisely, there must be a zero of $u$ between two zeros of $v$, and vice versa. 
+\end{thm}
+This theorem shows that all nontrivial solutions of (1) oscillate at the same speed.
+
+Next, Think of two different ODEs like these:
+\begin{equation}
+\displaystyle{ [p_1(x)y']' + q_1(x)y = 0}
+\end{equation}
+\begin{equation}
+\displaystyle{ [p_2(x)y']' + q_2(x)y = 0}
+\end{equation}
+We would like to think about the following question: Which of the solutions of these two ODEs oscillates faster?
+
+Suppose $y$ is a solution of (1). By using polar coordinates, we can obtain these representations:
+\begin{equation}
+\displaystyle{ y = \rho \sin \theta}
+\end{equation}
+\begin{equation}
+\displaystyle{ p(x)y' = \rho \cos \theta}
+\end{equation}
+, where $\rho$ and $\theta$ are functions of $x$.(By the way, I am not sure why we can always get this representation...) 
+
+\begin{prop}
+The following ODE about $\theta$ holds:
+\begin{equation}
+\displaystyle{ \theta' = \frac{1}{p(x)}\cos^2\theta + q(x)\sin^2\theta }
+\end{equation}
+\end{prop}
+\begin{prf}
+By differentiating (4) by $x$, we can obtain
+$$y'=\rho' \sin \theta + \rho \cos \theta \cdot \theta'$$
+Then, By (5), The following equation holds.
+\begin{equation}
+\rho' \sin \theta + \rho \cos \theta \cdot \theta' = \frac{1}{p(x)} \rho \cos \theta
+\end{equation}
+
+In the same way, by differentiating (5) by $x$,
+
+$$[p(x)y']' = \rho' \cos \theta - \rho \sin \theta \cdot \theta'$$
+
+By (1) and (4),
+
+\begin{equation}
+\rho' \cos \theta - \rho \sin \theta \cdot \theta' = -q(x)\rho \sin \theta
+\end{equation}
+
+Finally, by calculating (7) $\times \cos \theta$ - (8) $\times \sin \theta$, we can obtain the result.
+\qed
+\end{prf}
+
+\section{Theorems}
+
+By using (6), we will compare the speed of oscillation of the two equations, (2) and (3).
+Apply Prufer transformation to the solutions of (2) and (3). The equation about their arguments are as follows:
+
+\begin{equation}
+\displaystyle{ \theta_1' = \frac{1}{p_1(x)}\cos^2\theta_1 + q(x)\sin^2\theta_1 }
+\end{equation}
+
+\begin{equation}
+\displaystyle{ \theta_2' = \frac{1}{p_2(x)}\cos^2\theta_2 + q(x)\sin^2\theta_2 }
+\end{equation}
+
+The following theorem, known as Sturm Comparison Theorem, holds.
+
+\begin{thm}[Sturm Comparison Theorem]
+
+Suppose $\theta_1$ and $\theta_2$ are the solutions of (9) and (10).
+
+Assume the following properties hold:
+
+\begin{enumerate}
+\item On the interval $[a,b]$, $p_1(x),q_1(x),p_2(x)$ and $q_2(x)$ are continuous.
+\item $p_1(x) \geq p_2(x) > 0$, and $q_1(x) \leq q_2(x)$
+\item $\theta_1(a) \leq \theta_2(a)$
+\end{enumerate}
+
+Then,
+
+$$\forall x \in [a,b]; \quad \theta_1(x) \leq \theta_2(x)$$
+
+Moreover, in addition to the three assumptions above, if either $p_1(x) > p_2(x)$ or $q_1(x) < q_2(x)$ holds for all $x$ in $(a,b)$, then
+
+$$\forall x \in (a,b]; \quad \theta_1(x) < \theta_2(x)$$
+
+\end{thm}
+
+This theorem shows that the solution of (1) oscillates faster if $p$ is smaller or $q$ is bigger.
+
+\section{Examples I couldn't understand}
+\begin{ex}
+Assume the followings:
+
+\begin{itemize}
+	\item $p$ and $q$ are defined on $x>0$ and continuous.
+	\item $\exists L,M > 0 \quad \forall x; \quad 0<p(x)<L, \quad q(x)>M $
+\end{itemize}
+
+Show that in this case all nontrivial solutions of (1) have infinitely many zeros.
+
+\begin{prf}
+Think of the following ODE:
+$$Lz'' + Mz = 0$$
+Its solution is:
+$$z = C_1 \sin (\omega + C_2) \quad (\omega := \sqrt{\frac{M}{L}})$$
+Compare the equation (1) and this ODE. By using Sturm Comparison Theorem, $y$ oscillates faster than $z$(???). Because $z$ has infinitely many zeros, $y$ also does.
+\qed
+\end{prf}
+\end{ex}
+
+\begin{ex}
+Give the proof of Sturm Separation Theorem by using Sturm Comparison Theorem.
+\begin{prf}
+Aplly Prufer transformation to two solutions. Then, we can satisfy the condition $\theta_1 \leq \theta_2 \leq \theta_1 + \pi$.(???)
+\end{prf}
+\end{ex}
+
+\begin{ex}
+Show that all nontrivial solutions of the following ODE has at most two zeros.
+$$y'' + \frac{1}{4(1+x^2)}y = 0$$
+
+\begin{prf}
+Note that $y:=\sqrt{|x|}$ is the solution of $\displaystyle{y'' + \frac{1}{4x^2} = 0}$. Use Sturm Comparison Theorem. We can see that the given ODE can have at most one zero in $x>0$ and at most one zero in $x<0$.(???)
+\end{prf}
+\end{ex}
+
+\begin{ex}
+Assume the followings:
+\begin{itemize}
+	\item $p$ and $q$ are defined on $x>0$ and continuous.
+	\item $\displaystyle{\lim_{x \to \infty}=\alpha>0, \quad \lim_{x \to \infty}=\beta>0}$
+	\item $x_1<x_2<x_3<\cdots$ are zeros of a nontrivial solution of (1).
+\end{itemize}
+
+Show that the following equation holds:
+
+$$\displaystyle{\lim_{x \to \infty}(x_{n+1}-x_n)=2\pi \sqrt{\frac{\alpha}{\beta}}}$$
+
+\begin{prf}
+Compare the oscillations of (1) and $(\alpha \pm \epsilon)z'' + (\beta \mp \epsilon)z = 0$(???)
+\end{prf}
+
+\end{ex}
+
+\end{document}  

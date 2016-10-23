@@ -8,102 +8,11 @@
 \author{Kyohei Okumura}
 \begin{document}
 
-\title{$(l^1)'$と$l^{\infty}$は等距離同型}
+\title{Let's Solve the Problem}
 \author{Kyohei Okumura}
 \date{\today}
 \maketitle
 
-\section{写像の構成}
-$$
-\begin{array}{ccc}
-l^{\infty} & \stackrel{T}{\longrightarrow} & (l^1)' \\
-\rotatebox{90}{$\in$} & & \rotatebox{90}{$\in$} \\
-v & \longmapsto & f_v
-\end{array}
-$$
-
-となる写像$T$をまずは構成したい。
-
-$u = (u_k)_{k=1}^\infty \in l^1$を任意にとると、
-
-\begin{equation}
-\displaystyle{\sum_{k=1}^{\infty}\left|v_ku_k\right| \leq \sup_{k}\left|v_k\right| \sum_{k=1}^{\infty}\left|u_k\right| = \|v\|_{\infty} \|u\|_{1}  } 
-\end{equation}
-
-が成立する。したがって、$f_v(u) := \displaystyle{\sum_{k=1}^{\infty}v_{k}u_{k}} \;\;\; (u \in l^1)$と定義でき、($f_v:l^1 \to \mathbb{R}$)
-\begin{equation}
-\forall u \in l^1  \;\;\;\;  \left| f_v(u) \right| = \displaystyle{\left|\sum_{k}v_{k}u_{k}\right| \leq \sum_{k}\left|v_{k}u_{k}\right| \overset{\text\small\textrm{(1)}}{\leq} \|v\|_{\infty} \|u\|_{1}}
-\end{equation}
-
-また、$u^1=(u_k^1)_{k \in \mathbb{N}}, \;\; u^2 = (u_k^2)_{k \in \mathbb{N}}, \;\; u^1,u^2\in l^1$を任意にとってくると、
-
-\begin{eqnarray}
-f_v(\alpha_1 u^1 + \alpha_2 u^2) &=& \sum_k(\alpha_1u_k^1 + \alpha_2u_k^2)v_k \nonumber \\
-&\overset{\textrm{級数の線形性}}{=}& \alpha_1 \sum_{k}v_ku_k^1 + \alpha_2 \sum_{k}v_ku_k^2  \nonumber \\
-&=& \alpha_1 f_v(u^1) + \alpha_2 f_v(u^2)
-\end{eqnarray}
-
-したがって、(2),(3)より、$f_v$は有界かつ線形なので、$f_v \in (l^1)'$。以上より、$T: v \longmapsto f_v$が構成できた。あとは、$T$がノルムを保ち、$T$が全単射であり、$T,T^{-1}$が共に連続であることを示せば、$(l^1)'$と$l^{\infty}$が等距離同型であることが示される。以下、順に示す。
-
-
-\section{$T$がノルムを保つことの証明}
-
-$\|f_v\| = \|v\|_{\infty}$となることを示す。$\|v\|_{\infty} = \sup_{k}\left|v_k\right|$より、$\forall \epsilon>0 \;\; \exists j \in \mathbb{N}; \;\; \|v\|_{\infty}-\epsilon < \left|v_j\right|$が成立。
-
-$e^{(j)}:= (0 \; 0 \cdots \; 0 \; \overset{\textrm{j}}{1} \; 0 \cdots)$とおくと、$\displaystyle{\sum_{k}\left|e_k^{(j)}\right|} =1 <\infty$より$e^{(j)} \in l^1$なので、$f_v(e^{(j)})$が定義されて、
-
-\begin{equation}
-\forall \epsilon \; \exists j \;\;\; \left|f_v(e^{(j)})\right| = \left|v_j\right| > \|v\|_{\infty} - \epsilon
-\end{equation}
-
-\begin{equation}
-\|f_v\| = \sup_{\|u\|=1}\left|f_v(u)\right| \overset{(4)}{\geq} \|v\|_{\infty}
-\end{equation}
-
-が成立する。
-$$(2) \Rightarrow \forall u \in l^1 \setminus \{0\}; \;\;\; \frac{|f_v(u)|}{\|u\|_1} \leq \|v\|_{\infty} \Rightarrow \|f_v\| \leq \|v\|_{\infty}$$
-なので、(5)と併せて、$\|f_v\| = \|v\|_{\infty}$がいえる。
-
-\section{$T$が全射であることの証明}
-$\forall f \in (l^1)'\; \exists v \in l^{\infty} \;\;\; f = f_v (=T(v))$を示せばよい。$f=0$に対しては、$v=0$をとればよい。よって、以下では$f \neq 0$とする。
-
-$v_j := f(e^{(j)}), \; v:= (v_j)_{j=1}^{\infty}$とおくと、
-$$ \forall j \;\;\; \left|v_j\right| = \left|f(e{(j)})\right| \leq \|f\| \|e^{(j)}\|_1 = \|f\| $$
-となり、$\sup_j \left|v_j\right| < \infty $となるので、$v \in l^{\infty}$。
-
-この$v$に対応する$f_v$が$f_v=f$となることを示せばよい。
-
-$u = (u_j) \in l^1$を任意にとる。$u = \displaystyle{\sum_{j}u_je^{(j)}}$と表せることに注意すると、
-
-$$
-\displaystyle{f(u)=f(\sum_{j}u_je^{(j)}) = \sum_{j}u_jf(e^{(j)}) = \sum_{j}v_ju_j = f_v(u) }
-$$
-
-が成立するので、$T$が全射であることが示された。
-
-\section{$T$が単射であることの証明}
-$\forall v^1,v^2 \in l^{\infty}; \;\;\; v^1 \neq v^2 \Rightarrow f_{v^1} \neq f_{v^2}$を示せばよい。対偶を示す。
-
-$$\forall u \in l^1 \;\;\; f_{v^1} = f_{v^2} \Leftrightarrow \displaystyle{\sum_{k}v_k^1u_k = \sum_{k}v_k^2u_k}$$
-が成立するので、$u$として特に$e^{(j)}$をとれば、$\forall j \;\;\; v_j^1 = v_j^2$が示せる。したがって、$v^1=v^2$となる。
-
-\section{$T,T^{-1}$が共に連続であることの証明}
-\subsection{$T: v \longmapsto f_v$について}
-\begin{eqnarray*}
-\|f_{v_n}-f_v\| &=& \sup_{\|u\| \leq 1, u \in l^1}\left|f_{v_n}(u)-f_v(u)\right| \\
-&=& \sup_{\|u\| \leq 1, u \in l^1} \left| \sum_{k}(v_k^n-v_k)u_k \right| \\
-&\leq& \sup_{\|u\| \leq 1, u \in l^1} \sum_{k}|(v_k^n-v_k)| |u_k| \\
-&\leq& \|v_n-v\|_{\infty} \cdot \sup_{\|u\| \leq 1, u \in l^1}\sum_{k}|u_k| \\
-&\overset{\sum_{k}|u_k|=\|u\|}{\leq}& \|v_n-v\| \overset{n \to \infty}{\to} 0 
-\end{eqnarray*}
-
-\subsection{$T^{-1}: f \longmapsto v^f$について}
-$v^f:=\{f(e^{(j)})\}_{j=1}^{\infty}, \;\; v_j^f:=f(e^{(j)})$ とおく。
-\begin{eqnarray*}
-\|v^{f_n}-v^f\|_{\infty} &=& \sup_{j}|v_j^{f_n}-v_j^f| \\
-&=& \sup_{j}|f_n(e^{(j)})-f(e^{(j)})| \\
-&\leq& \sup_{\|u\|=1}|f_n(u)-f(u)| \\
-&=& \|f_n-f\| \overset{n \to \infty}{\to} 0
-\end{eqnarray*}
+\section{The Model}
 
 \end{document}
